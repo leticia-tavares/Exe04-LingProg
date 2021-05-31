@@ -17,6 +17,8 @@
 #ifndef CADASTRO_H
 #define CADASTRO_H
 
+using namespace std;
+
 class Cadastro{
 
   friend ostream &operator<< (ostream &, Cadastro &);

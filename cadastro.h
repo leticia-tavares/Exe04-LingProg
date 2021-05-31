@@ -11,7 +11,7 @@
 
 #include <iostream>
 #include <string>
-#include "arvore.h"
+#include "arvoreBinaria.h"
 #include "paciente.h"
 
 #ifndef CADASTRO_H
@@ -24,16 +24,16 @@ class Cadastro{
   friend ostream &operator<< (ostream &, Cadastro &);
 
   public:
-    Cadastro(Arvore <Paciente> *);
+    Cadastro(ArvoreBinaria <Paciente> *);
 
     void inserirPaciente(Paciente &);
     void buscarPaciente(string);
     void imprimirCadastro();
 
-    Arvore <Paciente> *getArvoreCadastro();
+    ArvoreBinaria <Paciente> *getArvoreCadastro();
 
   private:
-    Arvore <Paciente> *arvoreCadastro;
+    ArvoreBinaria <Paciente> *arvoreCadastro;
 };
 
 #endif

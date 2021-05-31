@@ -23,7 +23,6 @@ class PacienteGeriatria: public Paciente{
     PacienteGeriatria(const string, const string, const string, const int, const string, const string);
 
     virtual void getInformacao() const;
-  
 
  private:
    string nomeAcompanhante, tipoAcompanhante;

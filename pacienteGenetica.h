@@ -24,7 +24,6 @@ class PacienteGenetica: public Paciente{
 
     virtual void getInformacao() const;
 
-
  private:
    string tipoSanguineo;
 };

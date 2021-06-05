@@ -21,10 +21,10 @@ using namespace std;
 
 class Cadastro{
 
-  friend ostream &operator<< (ostream &, Cadastro &);
+  //friend ostream &operator<< (ostream &, Cadastro &);
 
   public:
-    Cadastro(ArvoreBinaria <Paciente> *);
+    Cadastro(ArvoreBinaria <Paciente> *novoNo):arvoreCadastro(novoNo){}
 
     void inserirPaciente(Paciente &);
     void buscarPaciente(string);

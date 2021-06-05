@@ -13,11 +13,17 @@
 
 using namespace std;
 
+
+/*-------------------------------------------------------------------------------*/
+
 PacienteGenetica::PacienteGenetica(const string nomeGen, const string generoGen, const string numeroGen, const int idadeGen, const string tipoABO):
   Paciente(nomeGen, generoGen, numeroGen, idadeGen){
     tipoSanguineo = tipoABO;
   }
 
+
+  /*-------------------------------------------------------------------------------*/
+  
 virtual void PacienteGenetica::getInformacao() const{
   cout << "Tipo sanguíneo do paciente: " << tipoSanguineo << endl;
 }

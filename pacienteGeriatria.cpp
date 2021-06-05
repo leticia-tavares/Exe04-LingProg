@@ -13,11 +13,16 @@
 
 using namespace std;
 
+/*-------------------------------------------------------------------------------*/
+
 PacienteGeriatria::PacienteGeriatria(const string nomeGer, const string genGer, const string numGer, const int idadeGer, const string nomeAc, const string tipoAc):
   Paciente(nomeGer, genGer, numoGer, idadeGer){
     nomeAcompanhante = nomeAc;
     tipoAcompanhante = tipoAc;
   }
+
+
+/*-------------------------------------------------------------------------------*/
 
 virtual void PacienteGeriatria::getInformacao() const{
   cout << "Acompanhante do Paciente: " << nomeAcompanhante << "| Relação com o Paciente: " << tipoAcompanhante << endl;

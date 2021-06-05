@@ -1,0 +1,57 @@
+Universidade Federal do Rio de Janeiro
+Escola Politecnica
+Departamento de Eletronica e de Computacao
+EEL670 - Linguagens de Programação
+Prof. Miguel
+Aluna: Leticia Tavares
+
+					Exercício Avaliado 4 
+
+-------------------------------------------------------------------------------------------------------------------
+	
+	O programa é compilado a partir do Makefile e seu comando make, que cria o executável 'cadastroExe'. 
+Após seu uso, é possível rodar o comando make clean, para limpar os arquivos *.o e o executável. 
+O arquivo de Makefile foi desenvolvido da forma como foi ensinado na disciplina de Computação II.
+
+	Também pode ser compilado seguinte da forma:
+g++ -Wall main.cpp excecao.cpp cadastro.cpp paciente.cpp pacienteGenetica.cpp pacienteGeriatria.cpp -o cadastroExe
+------------------------------------------------------------------------------------------------------------------
+
+- Implementação/Funcionamento do programa 
+
+	O programa possui uma classe Cadastro que gerencia uma base de dados de pacientes hospitalares. Esta classe
+possui uma árvore binária como estrutura de armazenamento dos pacientes. Além da classe Catalogo, o programa possui 
+uma classe Paciente que serve de base para outras duas classes herdeiras, PacienteGeriratria e PacienteGenética. 
+Estas duas classes herdeiras possuem diferentes tipos de atributos privados específicos. 
+
+	O programa possui como interação com o usuário a escolha de exibição de itens do menu,
+além capacidade de adiconar um novo paciente, buscar um paciente no cadastro e exibir dados de um ou todos
+os pacientes cadastrados. O programa fez uso de herança, polimorfismo, operadores sobrecarregados e classe template.
+Caso o usuário tente adicionar um paciente que já está cadastrado ou busque por um paciente que não exista,
+receberá uma mensagem de erro específica para cada caso.
+
+-------------------------------------------------------------------------------------------------------------
+
+- Arquivo cadastro.cpp: implementação da classe Cadastro e suas funções.
+
+------------------------------------------------------------------------------------------------------------------
+
+- Arquivo arvoreBinaria.cpp: implementação da estrutura da árvore binária e seus operadores sobrecarregados.
+
+------------------------------------------------------------------------------------------------------------------
+
+- Arquivo paciente.cpp: implementação da classe Paciente, suas funções e seus operadores sobrecarregados.
+
+------------------------------------------------------------------------------------------------------------------
+
+- Arquivo pacienteGeriatria.cpp & pacienteGenetica.cpp: implementação das classes derivadas.
+
+------------------------------------------------------------------------------------------------------------------
+
+- Arquivo excecao.cpp: tratamento de possíveis erros do programa.
+
+-------------------------------------------------------------------------------------------------------------------
+
+-Arquivo main.cpp: programa principal, responsável por instanciar a classe Cadastro e rodar o menu.
+
+-------------------------------------------------------------------------------------------------------------------

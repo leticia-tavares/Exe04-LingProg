@@ -5,24 +5,24 @@ EEL670 - Linguagens de Programação
 Prof. Miguel
 Aluna: Leticia Tavares
 
-					Exercício Avaliado 4 
+					Exercício Avaliado 4
 
 -------------------------------------------------------------------------------------------------------------------
-	
-	O programa é compilado a partir do Makefile e seu comando make, que cria o executável 'cadastroExe'. 
-Após seu uso, é possível rodar o comando make clean, para limpar os arquivos *.o e o executável. 
+
+	O programa é compilado a partir do Makefile e seu comando make, que cria o executável 'cadastroExe'.
+Após seu uso, é possível rodar o comando make clean, para limpar os arquivos *.o e o executável.
 O arquivo de Makefile foi desenvolvido da forma como foi ensinado na disciplina de Computação II.
 
 	Também pode ser compilado seguinte da forma:
-g++ -Wall main.cpp excecao.cpp cadastro.cpp paciente.cpp pacienteGenetica.cpp pacienteGeriatria.cpp -o cadastroExe
+g++ -Wall main.cpp  cadastro.cpp paciente.cpp pacienteGenetica.cpp pacienteGeriatria.cpp -o cadastroExe
 ------------------------------------------------------------------------------------------------------------------
 
-- Implementação/Funcionamento do programa 
+- Implementação/Funcionamento do programa
 
 	O programa possui uma classe Cadastro que gerencia uma base de dados de pacientes hospitalares. Esta classe
-possui uma árvore binária como estrutura de armazenamento dos pacientes. Além da classe Catalogo, o programa possui 
-uma classe Paciente que serve de base para outras duas classes herdeiras, PacienteGeriratria e PacienteGenética. 
-Estas duas classes herdeiras possuem diferentes tipos de atributos privados específicos. 
+possui uma árvore binária como estrutura de armazenamento dos pacientes. Além da classe Catalogo, o programa possui
+uma classe Paciente que serve de base para outras duas classes herdeiras, PacienteGeriratria e PacienteGenética.
+Estas duas classes herdeiras possuem diferentes tipos de atributos privados específicos.
 
 	O programa possui como interação com o usuário a escolha de exibição de itens do menu,
 além capacidade de adiconar um novo paciente, buscar um paciente no cadastro e exibir dados de um ou todos
@@ -36,7 +36,7 @@ receberá uma mensagem de erro específica para cada caso.
 
 ------------------------------------------------------------------------------------------------------------------
 
-- Arquivo arvoreBinaria.cpp: implementação da estrutura da árvore binária e seus operadores sobrecarregados.
+- Arquivo arvoreBinaria.h: implementação da estrutura da árvore binária e seus operadores sobrecarregados.
 
 ------------------------------------------------------------------------------------------------------------------
 
@@ -48,7 +48,7 @@ receberá uma mensagem de erro específica para cada caso.
 
 ------------------------------------------------------------------------------------------------------------------
 
-- Arquivo excecao.cpp: tratamento de possíveis erros do programa.
+- Arquivo excecao.h: tratamento de possíveis erros do programa.
 
 -------------------------------------------------------------------------------------------------------------------
 

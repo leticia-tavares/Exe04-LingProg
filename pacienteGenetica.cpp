@@ -23,7 +23,7 @@ PacienteGenetica::PacienteGenetica(const string nomeGen, const string generoGen,
 
 
   /*-------------------------------------------------------------------------------*/
-  
-virtual void PacienteGenetica::getInformacao() const{
+
+void PacienteGenetica::getInformacao() const{
   cout << "Tipo sanguíneo do paciente: " << tipoSanguineo << endl;
 }

@@ -17,7 +17,7 @@ using namespace std;
 
 /*****************************************************************************/
 
-friend ostream &operator<<(ostream &out, const Paciente &humano){
+ostream &operator<<(ostream &out, const Paciente &humano){
   out << "---Dados do Paciente---" << endl;
   out << "Nome: " << humano.getNome() << endl << "Gênero: " << humano.getGenero() << endl
   << "Idade: " <<humano.getIdade() << endl <<"Número: " << humano.getNumero() << endl;
@@ -28,7 +28,7 @@ friend ostream &operator<<(ostream &out, const Paciente &humano){
 
 /*****************************************************************************/
 
-Paciente::Paciente(string n, string g, string num, int id){
+Paciente::Paciente(const string n, const string g, const string num, const int id){
   setNome(n);
   setGenero(g);
   setNumero(num);
@@ -37,27 +37,27 @@ Paciente::Paciente(string n, string g, string num, int id){
 
 /*****************************************************************************/
 
-void Paciente::setNome(string n){nome = n;}
-string Paciente::getNome(){return nome;}
+void Paciente::setNome(const string n){nome = n;}
+string Paciente::getNome() const{return nome;}
 
 /*****************************************************************************/
 
-void Paciente::setGenero(string g){genero = g;}
-string Paciente::getGenero(){return genero;}
+void Paciente::setGenero(const string g){genero = g;}
+string Paciente::getGenero() const{return genero;}
 
 /*****************************************************************************/
 
-void Paciente::setNumero(string num){numero = num;}
-string Paciente::getNumero(){return numero;}
+void Paciente::setNumero(const string num){numero = num;}
+string Paciente::getNumero()const {return numero;}
 
 /*****************************************************************************/
 
-void Paciente::setIdade(int id){idade = id;}
-int Paciente::getIdade(){return idade;}
+void Paciente::setIdade(const int id){idade = id;}
+int Paciente::getIdade() const {return idade;}
 
 /*****************************************************************************/
 
-//virtual void getInformacaoPessoal() const;
+void Paciente::getInformacaoPessoal() const{;}
 
 /*****************************************************************************/
 

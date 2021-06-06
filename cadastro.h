@@ -27,8 +27,8 @@ class Cadastro{
     Cadastro(ArvoreBinaria <Paciente> *novoNo):arvoreCadastro(novoNo){}
 
     void inserirPaciente(Paciente &);
-    void buscarPaciente(string);
-    void imprimirCadastro();
+    void buscarPaciente(const string);
+    void imprimirCadastro() const;
 
     ArvoreBinaria <Paciente> *getArvoreCadastro();
 

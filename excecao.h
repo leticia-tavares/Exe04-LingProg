@@ -19,13 +19,13 @@ using namespace std;
 class PacienteCadastradoException: public runtime_error{
     public:
         PacienteCadastradoException()
-        : runtime_error("Este paciente já existe no cadastro.") {}
+        : runtime_error("ATENÇÃO: Este paciente já existe no cadastro.") {}
 };
 
 class PacienteNaoEncontradoException: public runtime_error{
     public:
         PacienteNaoEncontradoException()
-        : runtime_error("Este paciente não existe no cadastro.") {}
+        : runtime_error("ATENÇÃO: Este paciente não existe no cadastro.") {}
 };
 
 #endif

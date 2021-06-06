@@ -24,6 +24,6 @@ PacienteGeriatria::PacienteGeriatria(const string nomeGer, const string genGer, 
 
 /*-------------------------------------------------------------------------------*/
 
-virtual void PacienteGeriatria::getInformacao() const{
+void PacienteGeriatria::getInformacao() const{
   cout << "Acompanhante do Paciente: " << nomeAcompanhante << "| Relação com o Paciente: " << tipoAcompanhante << endl;
 }

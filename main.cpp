@@ -24,56 +24,51 @@ using namespace std;
 void inserirPaciente (Cadastro &c){
   int tipo, idade;
   string nome, genero, numero;
+
   cout << "1 - Cadastrar Paciente da Geriatria."<<endl;
   cout << "2 - Cadastrar Paciente da Genética."<<endl;
   cout << "Tipo: " ;
   cin >> tipo;
 
-  //Paciente *paciente = NULL;
-  cout << "Insira o nome do paciente: ";
-  cin.ignore();
-  getline(cin, nome);
-  cout << endl;
-
-  cout << "Insira o gênero do paciente: ";
-  cin.ignore();
-  getline(cin, genero);
-  cout << endl;
-
-  cout << "Insira telefone para contato (formato (xxx)xxxxx-xxxx): ";
-  cin.ignore();
-  getline(cin, numero);
-  cout << endl;
-
-  cout << "Insira a idade do paciente: ";
-  cin >> idade;
-  cout << endl;
-
-  if(tipo == 1){
-    string nomeAcomp, tipoAcomp;
-    cout << "Insira o nome do acompanhante: ";
+  Paciente *paciente = NULL;
+  if (tipo == 1 || tipo == 2){
+    cout << "Insira o nome do paciente: ";
     cin.ignore();
-    getline(cin, nomeAcomp);
-    cout << endl;
+    getline(cin, nome);
 
-    cout << "Insira a relação do acompanhante com o paciente: ";
-    cin.ignore();
-    getline(cin, tipoAcomp);
-    cout << endl;
-    PacienteGeriatria paciente(nome,genero, numero, idade, nomeAcomp, tipoAcomp);
-  //  paciente = new PacienteGeriatria(nome, genero, numero, idade, nomeAcomp, tipoAcomp);
-    c.inserirPaciente(paciente);
-  }
-  else if (tipo == 2){
-    string tipoSangue;
-    cout << "Insira tipo sanguíneo do paciente: ";
-    cin.ignore();
-    getline(cin, tipoSangue);
-    cout << endl;
+    cout << "Insira o gênero do paciente: ";
+      getline(cin, genero);
 
-    PacienteGenetica paciente(nome, genero, numero, idade, tipoSangue);
-    //paciente = new PacienteGenetica(nome, genero, numero, idade, tipoSangue);
-    c.inserirPaciente(paciente);
+    cout << "Insira telefone para contato (formato (xxx)xxxxx-xxxx): ";
+    getline(cin, numero);
+
+    cout << "Insira a idade do paciente: ";
+    cin >> idade;
+
+    if(tipo == 1){
+      string nomeAcomp, tipoAcomp;
+      cout << "Insira o nome do acompanhante: ";
+      cin.ignore();
+      getline(cin, nomeAcomp);
+
+      cout << "Insira a relação do acompanhante com o paciente: ";
+      cin.ignore();
+      getline(cin, tipoAcomp);
+
+      //PacienteGeriatria paciente(nome,genero, numero, idade, nomeAcomp, tipoAcomp);
+      paciente = new PacienteGeriatria(nome, genero, numero, idade, nomeAcomp, tipoAcomp);
+      c.inserirPaciente(*paciente);
+    }
+    else if (tipo == 2){
+      string tipoSangue;
+      cout << "Insira tipo sanguíneo do paciente: ";
+      cin.ignore();
+      getline(cin, tipoSangue);
+
+      //PacienteGenetica paciente(nome, genero, numero, idade, tipoSangue);
+      paciente = new PacienteGenetica(nome, genero, numero, idade, tipoSangue);
+      c.inserirPaciente(*paciente);
+    }
   }
   else{
     cout << "Entrada inválida! Por favor, tente novamente: "<< endl;
@@ -128,7 +123,6 @@ int main (){
         }
         case 3:{ //impressão
           cout<< "\n--------------- PACIENTES REGISTRADOS---------------"<<endl;
-
           cadastro.imprimirCadastro();
 
           cout << "------------------------------" << endl;

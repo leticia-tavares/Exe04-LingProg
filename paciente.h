@@ -21,20 +21,20 @@ class Paciente{
   friend ostream &operator<<(ostream&, const Paciente &);
 
   public:
-    Paciente(string, string, string, int);
+    Paciente(const string, const string, const string, const int);
 
 
-    void setNome(string);
-    string getNome();
+    void setNome(const string);
+    string getNome() const;
 
-    void setGenero(string);
-    string getGenero();
+    void setGenero(const string);
+    string getGenero() const;
 
-    void setNumero(string);
-    string getNumero();
+    void setNumero(const string);
+    string getNumero() const;
 
-    void setIdade(int);
-    int getIdade();
+    void setIdade(const int);
+    int getIdade() const;
 
     virtual void getInformacaoPessoal() const;
 

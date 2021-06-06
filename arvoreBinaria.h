@@ -32,9 +32,9 @@ template <typename T> ostream &operator<< (ostream &, const ArvoreBinaria<T> &);
 template <class T>
 class ArvoreBinaria{
 
-  template <class U>
+/*  template <class U>
   friend ostream &operator<< (ostream &, const ArvoreBinaria<U> &);
-
+*/
   public:
     ArvoreBinaria(T * n = NULL, ArvoreBinaria *esq = NULL, ArvoreBinaria *dir = NULL){
       setNo(n);
@@ -59,6 +59,9 @@ class ArvoreBinaria{
     ArvoreBinaria *operator+=(T *);
     ArvoreBinaria *operator()(const string);
 
+    template <class U>
+    friend ostream &operator<< (ostream &, const ArvoreBinaria<U> &);
+
   private:
     T *no;
     ArvoreBinaria *esqPtr;
@@ -69,66 +72,76 @@ class ArvoreBinaria{
 
 template <class U>
 ostream &operator<<(ostream &out, const ArvoreBinaria<U> &n){
-    if (n->esqPtr != NULL){
-      out << *(n->esqPtr);
+    //if (n.getFilhoEsq() != NULL){
+    if (n.esqPtr != NULL){
+      out << *(n.esqPtr);
     }
+    //out << *(n.getNo());
 
-    out << *(n->no);
-
-    if (n->dirPtr != NULL){
-      out << *(n->dirPtr);
+    out << *(n.no);
+    //if (n.getFilhoDir() != NULL){
+    if (n.dirPtr != NULL){
+      out << *(n.dirPtr);
     }
 
     return out;
-};
+}
 
 /*-------------------------------------------------------------------------------*/
 
 template <class T>
 ArvoreBinaria<T> *ArvoreBinaria<T>::operator+=(T *novoNo){
-  if ((this->no) == NULL){
-    (this->no) = novoNo;
+  ArvoreBinaria *av = NULL;
+  if (no == NULL){
+    no = novoNo;
+    av = this;
+    return av;
   }
   else{
-    if(novoNo->getName == (this->no->getNome())){
+    if(novoNo->getNome() == (no->getNome())){
       throw PacienteCadastradoException();
     }
-    else if(novoNo->getNome() < (this->no->getNome())){
-      if(this->dirPtr == NULL){
-        (this->dirPtr) = new ArvoreBinaria<T>(novoNo);
+
+    else if(novoNo->getNome() < (no->getNome())){
+      if(dirPtr == NULL){
+        dirPtr = new ArvoreBinaria<T>(novoNo);
+        return (av = dirPtr);
       }else{
-        this = (*this->dirPtr) += novoNo;
+        //this = (*dirPtr) += novoNo;
+        av = (*dirPtr)+= novoNo;
+        return av;
       }
     }
     else{
-      if ((this->esqPtr)== NULL){
-        (this->esqPtr) = new ArvoreBinaria<T>(novoNo);
+      if (esqPtr == NULL){
+        esqPtr = new ArvoreBinaria<T>(novoNo);
+        return (av = esqPtr);
       }else{
-        this = (*this->esqPtr) += novoNo;
+        //this = (*esqPtr) += novoNo;
+        av = (*esqPtr) += novoNo;
+        return av;
       }
     }
   }
-  return this;
 }
 
 /*-------------------------------------------------------------------------------*/
 
 template <class T>
 ArvoreBinaria<T> *ArvoreBinaria<T>::operator()(const string nomeBusca){
-
-  while(((this->no) != NULL) && (nomeBusca =! this->no->getNome())){
-    if(nomeBusca < (this->no->getNome())){
-      this = (this->esqPtr);
+  while((no != NULL) && (nomeBusca != no->getNome())){
+    if(nomeBusca < (no->getNome())){
+      if(dirPtr == NULL){return NULL;}
+      return (*dirPtr)(nomeBusca);
     }
-    else {
-      this = (this->dirPtr);
+    else{
+      if(esqPtr == NULL){return NULL;}
+      return (*esqPtr)(nomeBusca);
     }
   }
-
-  if ((this)== NULL){
+  if (no == NULL){
     throw PacienteNaoEncontradoException();
   }
-
   return this;
 }
 

@@ -18,13 +18,12 @@ using namespace std;
 /*****************************************************************************/
 
 void Cadastro::inserirPaciente(Paciente &humano){
-  ArvoreBinaria <Paciente> *pacientePtr = (*arvoreCadastro)+= humano;
-  cout << pacientePtr->getNo()->getNome() << "foi adicionado ao cadastro." << endl;
+  arvoreCadastro->operator+=(&humano);
 }
 
 /*****************************************************************************/
 
-void Cadastro::buscarPaciente(string nomeP){
+void Cadastro::buscarPaciente(const string nomeP){
   ArvoreBinaria <Paciente> *pacientePtr = (*arvoreCadastro)(nomeP);
 
   if (pacientePtr != NULL){
@@ -34,9 +33,8 @@ void Cadastro::buscarPaciente(string nomeP){
 
 /*****************************************************************************/
 
-void Cadastro::imprimirCadastro(){
-  cout << "-----Cadastro Completo-----" << endl;
-  cout << *(this->arvoreCadastro);
+void Cadastro::imprimirCadastro()const{
+  cout << *(arvoreCadastro);
 }
 
 /*****************************************************************************/

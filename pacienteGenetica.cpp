@@ -13,7 +13,6 @@
 
 using namespace std;
 
-
 /*-------------------------------------------------------------------------------*/
 
 PacienteGenetica::PacienteGenetica(const string nomeGen, const string generoGen, const string numeroGen, const int idadeGen, const string tipoABO):
@@ -21,9 +20,8 @@ PacienteGenetica::PacienteGenetica(const string nomeGen, const string generoGen,
     tipoSanguineo = tipoABO;
   }
 
+/*-------------------------------------------------------------------------------*/
 
-  /*-------------------------------------------------------------------------------*/
-
-void PacienteGenetica::getInformacao() const{
+void PacienteGenetica::getInformacaoPessoal() const{
   cout << "Tipo sanguíneo do paciente: " << tipoSanguineo << endl;
 }

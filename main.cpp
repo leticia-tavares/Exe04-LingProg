@@ -24,6 +24,8 @@ using namespace std;
 void inserirPaciente (Cadastro &c){
   int tipo, idade;
   string nome, genero, numero;
+  string nomeAcomp, tipoAcomp;
+  string tipoSangue;
 
   cout << "1 - Cadastrar Paciente da Geriatria."<<endl;
   cout << "2 - Cadastrar Paciente da Genética."<<endl;
@@ -37,22 +39,20 @@ void inserirPaciente (Cadastro &c){
     getline(cin, nome);
 
     cout << "Insira o gênero do paciente: ";
-      getline(cin, genero);
+    getline(cin, genero);
 
-    cout << "Insira telefone para contato (formato (xxx)xxxxx-xxxx): ";
+    cout << "Insira telefone para contato (xxx)xxxxx-xxxx: ";
     getline(cin, numero);
 
     cout << "Insira a idade do paciente: ";
     cin >> idade;
 
     if(tipo == 1){
-      string nomeAcomp, tipoAcomp;
       cout << "Insira o nome do acompanhante: ";
       cin.ignore();
       getline(cin, nomeAcomp);
 
       cout << "Insira a relação do acompanhante com o paciente: ";
-      cin.ignore();
       getline(cin, tipoAcomp);
 
       //PacienteGeriatria paciente(nome,genero, numero, idade, nomeAcomp, tipoAcomp);
@@ -60,7 +60,6 @@ void inserirPaciente (Cadastro &c){
       c.inserirPaciente(*paciente);
     }
     else if (tipo == 2){
-      string tipoSangue;
       cout << "Insira tipo sanguíneo do paciente: ";
       cin.ignore();
       getline(cin, tipoSangue);
@@ -78,9 +77,7 @@ void inserirPaciente (Cadastro &c){
 
 int main (){
   int opcao = 0; //default do switch
-
   ArvoreBinaria <Paciente> *raiz = new ArvoreBinaria <Paciente>();
-
   Cadastro cadastro(raiz);
 
   cout << "\n\n--------------- C A D A S T R O  H O S P I T A L A R ---------------" << endl;
@@ -115,7 +112,6 @@ int main (){
           cout << "Insira o nome desejado: ";
           cin.ignore();
           getline(cin, nomeBusca);
-
           cadastro.buscarPaciente(nomeBusca);
 
           cout << "------------------------------" << endl;
@@ -123,8 +119,9 @@ int main (){
         }
         case 3:{ //impressão
           cout<< "\n--------------- PACIENTES REGISTRADOS---------------"<<endl;
-          cadastro.imprimirCadastro();
-
+          if (cadastro.getArvoreCadastro() != NULL){
+            cadastro.imprimirCadastro();
+          }
           cout << "------------------------------" << endl;
           break;
         }

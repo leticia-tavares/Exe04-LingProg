@@ -129,6 +129,9 @@ ArvoreBinaria<T> *ArvoreBinaria<T>::operator+=(T *novoNo){
 
 template <class T>
 ArvoreBinaria<T> *ArvoreBinaria<T>::operator()(const string nomeBusca){
+  if (this->no == NULL){
+    throw PacienteNaoEncontradoException();
+  }
   while((no != NULL) && (nomeBusca != no->getNome())){
     if(nomeBusca < (no->getNome())){
       if(dirPtr == NULL){return NULL;}
@@ -139,9 +142,10 @@ ArvoreBinaria<T> *ArvoreBinaria<T>::operator()(const string nomeBusca){
       return (*esqPtr)(nomeBusca);
     }
   }
+  /*
   if (no == NULL){
     throw PacienteNaoEncontradoException();
-  }
+  }*/
   return this;
 }
 

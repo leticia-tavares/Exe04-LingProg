@@ -21,7 +21,7 @@ class PacienteGenetica: public Paciente{
   public:
     PacienteGenetica(const string, const string, const string, const int, const string);
     //PacienteGenetica(const string, const string, const int, const string)
-    virtual void getInformacao() const;
+    virtual void getInformacaoPessoal() const;
 
  private:
    string tipoSanguineo;

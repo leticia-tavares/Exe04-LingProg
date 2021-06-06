@@ -23,7 +23,6 @@ class Paciente{
   public:
     Paciente(const string, const string, const string, const int);
 
-
     void setNome(const string);
     string getNome() const;
 

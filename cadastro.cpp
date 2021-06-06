@@ -19,16 +19,16 @@ using namespace std;
 
 void Cadastro::inserirPaciente(Paciente &humano){
   arvoreCadastro->operator+=(&humano);
+  //(arvoreCadastro)+=humano;
 }
 
 /*****************************************************************************/
 
 void Cadastro::buscarPaciente(const string nomeP){
   ArvoreBinaria <Paciente> *pacientePtr = (*arvoreCadastro)(nomeP);
-
   if (pacientePtr != NULL){
     cout << (*pacientePtr->getNo()) << endl;
-  }
+  } 
 }
 
 /*****************************************************************************/

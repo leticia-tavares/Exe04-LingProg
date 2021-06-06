@@ -17,17 +17,6 @@ using namespace std;
 
 /*****************************************************************************/
 
-ostream &operator<<(ostream &out, const Paciente &humano){
-  out << "---Dados do Paciente---" << endl;
-  out << "Nome: " << humano.getNome() << endl << "Gênero: " << humano.getGenero() << endl
-  << "Idade: " <<humano.getIdade() << endl <<"Número: " << humano.getNumero() << endl;
-
-  humano.getInformacaoPessoal();
-  return out;
-}
-
-/*****************************************************************************/
-
 Paciente::Paciente(const string n, const string g, const string num, const int id){
   setNome(n);
   setGenero(g);
@@ -57,12 +46,24 @@ int Paciente::getIdade() const {return idade;}
 
 /*****************************************************************************/
 
-void Paciente::getInformacaoPessoal() const{;}
-
-/*****************************************************************************/
-
 bool Paciente::operator<(const Paciente &humano){return (this->nome < humano.getNome());}
 
 bool Paciente::operator>(const Paciente &humano){return (this->nome > humano.getNome());}
 
 bool Paciente::operator==(const Paciente &humano){return (this->nome == humano.getNome());}
+
+/*****************************************************************************/
+
+void Paciente::getInformacaoPessoal() const{}
+
+/*****************************************************************************/
+
+ostream &operator<<(ostream &out, const Paciente &humano){
+  out << "\n---Dados do Paciente---" << endl;
+  out << "Nome: " << humano.getNome() << endl << "Gênero: " << humano.getGenero() << endl
+  << "Idade: " <<humano.getIdade() << endl <<"Número: " << humano.getNumero()<< endl;
+
+  humano.getInformacaoPessoal();
+
+  return out;
+}

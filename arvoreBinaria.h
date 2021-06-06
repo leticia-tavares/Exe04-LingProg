@@ -14,6 +14,7 @@
 #include <string>
 #include <iomanip>
 #include <ostream>
+#include <utility>
 
 #include "excecao.h"
 
@@ -22,13 +23,17 @@
 
 using namespace std;
 
+/*
+template <typename T> class ArvoreBinaria;
+template <typename T> ostream &operator<< (ostream &, const ArvoreBinaria<T> &);
+*/
 /*-------------------------------------------------------------------------------*/
 
 template <class T>
 class ArvoreBinaria{
 
-  template <class T>
-  friend ostream &operator<< (ostream &, const ArvoreBinaria<T> &);
+  template <class U>
+  friend ostream &operator<< (ostream &, const ArvoreBinaria<U> &);
 
   public:
     ArvoreBinaria(T * n = NULL, ArvoreBinaria *esq = NULL, ArvoreBinaria *dir = NULL){
@@ -42,7 +47,7 @@ class ArvoreBinaria{
       delete dirPtr;
     }
 
-    void ArvoreBinaria *setNo(T * n){no = n;}
+    void setNo(T * n){no = n;}
     T *getNo(){return no;}
 
     void setFilhoEsq(ArvoreBinaria *esq){esqPtr = esq;}
@@ -62,8 +67,8 @@ class ArvoreBinaria{
 
 /*-------------------------------------------------------------------------------*/
 
-template <class T>
-ostream &operator<<(ostream &out, const ArvoreBinaria<T> &n){
+template <class U>
+ostream &operator<<(ostream &out, const ArvoreBinaria<U> &n){
     if (n->esqPtr != NULL){
       out << *(n->esqPtr);
     }
@@ -80,7 +85,7 @@ ostream &operator<<(ostream &out, const ArvoreBinaria<T> &n){
 /*-------------------------------------------------------------------------------*/
 
 template <class T>
-ArvoreBinaria *ArvoreBinaria<T>::operator+=(T *novoNo){
+ArvoreBinaria<T> *ArvoreBinaria<T>::operator+=(T *novoNo){
   if ((this->no) == NULL){
     (this->no) = novoNo;
   }
@@ -109,9 +114,9 @@ ArvoreBinaria *ArvoreBinaria<T>::operator+=(T *novoNo){
 /*-------------------------------------------------------------------------------*/
 
 template <class T>
-ArvoreBinaria *ArvoreBinaria<T>::operator()(const string nomeBusca){
+ArvoreBinaria<T> *ArvoreBinaria<T>::operator()(const string nomeBusca){
 
-  while(((this->no) =! NULL && nomeBusca =! this->no->getNome())){
+  while(((this->no) != NULL) && (nomeBusca =! this->no->getNome())){
     if(nomeBusca < (this->no->getNome())){
       this = (this->esqPtr);
     }

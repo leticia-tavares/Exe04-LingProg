@@ -18,7 +18,7 @@ using namespace std;
 /*****************************************************************************/
 
 friend ostream &operator<<(ostream &out, const Paciente &humano){
-  out << "---Dados do Paciente---" < endl;
+  out << "---Dados do Paciente---" << endl;
   out << "Nome: " << humano.getNome() << endl << "Gênero: " << humano.getGenero() << endl
   << "Idade: " <<humano.getIdade() << endl <<"Número: " << humano.getNumero() << endl;
 

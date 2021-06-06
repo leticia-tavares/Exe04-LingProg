@@ -29,7 +29,7 @@ void inserirPaciente (Cadastro &c){
   cout << "Tipo: " ;
   cin >> tipo;
 
-  Paciente *paciente = NULL;
+  //Paciente *paciente = NULL;
   cout << "Insira o nome do paciente: ";
   cin.ignore();
   getline(cin, nome);
@@ -60,8 +60,9 @@ void inserirPaciente (Cadastro &c){
     cin.ignore();
     getline(cin, tipoAcomp);
     cout << endl;
-
-    paciente = new PacienteGeriatria(nome, genero, numero, idade, nomeAcomp, tipoAcomp);
+    PacienteGeriatria paciente(nome,genero, numero, idade, nomeAcomp, tipoAcomp);
+  //  paciente = new PacienteGeriatria(nome, genero, numero, idade, nomeAcomp, tipoAcomp);
+    c.inserirPaciente(paciente);
   }
   else if (tipo == 2){
     string tipoSangue;
@@ -70,7 +71,9 @@ void inserirPaciente (Cadastro &c){
     getline(cin, tipoSangue);
     cout << endl;
 
-    paciente = new PacienteGenetica(nome, genero, numero, idade, tipoSangue);
+    PacienteGenetica paciente(nome, genero, numero, idade, tipoSangue);
+    //paciente = new PacienteGenetica(nome, genero, numero, idade, tipoSangue);
+    c.inserirPaciente(paciente);
   }
   else{
     cout << "Entrada inválida! Por favor, tente novamente: "<< endl;
@@ -80,7 +83,10 @@ void inserirPaciente (Cadastro &c){
 
 int main (){
   int opcao = 0; //default do switch
-  Cadastro cadastro;
+
+  ArvoreBinaria <Paciente> *raiz = new ArvoreBinaria <Paciente>();
+
+  Cadastro cadastro(raiz);
 
   cout << "\n\n--------------- C A D A S T R O  H O S P I T A L A R ---------------" << endl;
 
@@ -124,7 +130,7 @@ int main (){
           cout<< "\n--------------- PACIENTES REGISTRADOS---------------"<<endl;
 
           cadastro.imprimirCadastro();
-          
+
           cout << "------------------------------" << endl;
           break;
         }

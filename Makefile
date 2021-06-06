@@ -8,7 +8,7 @@
 # Descricao: arquivo de Makefile
 #
 #
-# g++ -Wall main.cpp excecao.cpp cadastro.cpp paciente.cpp pacienteGenetica.cpp pacienteGeriatria.cpp -o cadastroExe
+# g++ -Wall main.cpp cadastro.cpp paciente.cpp pacienteGenetica.cpp pacienteGeriatria.cpp -o cadastroExe
 
 
 #Compilar
@@ -21,7 +21,7 @@ CFLAGS = -Wall
 LFLAGS = -Wall
 
 #Dependencias
-LAB09OBJS = main.o excecao.o cadastro.o paciente.o pacienteGenetica.o pacienteGeriatria.o
+LAB09OBJS = main.o cadastro.o paciente.o pacienteGenetica.o pacienteGeriatria.o
 
 LAB09 = cadastroExe
 EXECS = $(LAB09)

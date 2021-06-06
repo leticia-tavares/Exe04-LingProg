@@ -16,7 +16,7 @@ using namespace std;
 /*-------------------------------------------------------------------------------*/
 
 PacienteGeriatria::PacienteGeriatria(const string nomeGer, const string genGer, const string numGer, const int idadeGer, const string nomeAc, const string tipoAc):
-  Paciente(nomeGer, genGer, numoGer, idadeGer){
+  Paciente(nomeGer, genGer, numGer, idadeGer){
     nomeAcompanhante = nomeAc;
     tipoAcompanhante = tipoAc;
   }
